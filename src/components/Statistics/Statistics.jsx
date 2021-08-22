@@ -1,31 +1,26 @@
-import React  from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import   './Statistics.css';
-let randomColor = (Math.round, Math.random, 255)
-// console.log('random', randomColor)
+//import { Test } from './Statistics.styles';
 
+class Statistics extends PureComponent { 
+  constructor(props) {
+    super(props);
 
-
-const Statistics = ({ title, stats }) => {
-  return (
-    <div className="StatisticsWrapper">
-      <section className="statistics">
-        {title && <h2 className="title">{title}</h2>}
-          <ul className="stat-list"> 
-            {stats.map(({id, label, percentage}) =>
-            (<li className="stat-item" style={{backgroundColor: `rgb(randomColor, randomColor, randomColor)`}} key={id}>
-    <span className="label">{label}</span>
-    <span className="percentage">{percentage} %</span>
-            </li>))}
-          </ul>
-      </section>
-    </div>
-    )
+    this.state = {
+      hasError: false,
+    };
   }
  
+  render () {
+     return (
+      <div className="StatisticsWrapper">
+Statistics      </div>
+    );
+  }
+}
+
 Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(PropTypes.any.isRequired),
+  // bla: PropTypes.string,
 };
 
 Statistics.defaultProps = {
