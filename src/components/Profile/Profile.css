@@ -1,0 +1,18 @@
+.Stats{
+    display: inline-flex;
+    border: 1px solid grey;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.StatItem{
+    border: 1px solid grey;
+    padding: 10px;
+
+}
+.label{
+    display: block;
+}
+.quantity{
+    font-weight:700;
+}
