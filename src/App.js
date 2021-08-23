@@ -1,38 +1,41 @@
 import { Component } from 'react';
 import './App.css';
-import Container from './components/Container'
-import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
-import Statistics from './components/Statistics/Statistics';
- 
-//file
- 
-  
+import Container from './components/Container';
+// import FeedbackOptions from './components/FeedbackOptions';
+// import Statistics from './components/Statistics';
 
+//file
 class App extends Component {
   state = {
-  good: 0,
-  neutral: 0,
-  bad: 0
-  }
-  render(){
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <Container title='Feedback:'>
-          {Object.keys(this.state).map((item, i)=><button key={i} >{item} </button> )}
-           {/* <Statistics /> */}
-          <ul>
-            {Object.entries(this.state).map((item, i) => <li key={i}>{item[0]}: { item[1]}</li>)}
-          </ul>
-          {/* <FeedbackOptions /> */}
-        </Container>
-        {/* <Statistics good={} neutral={} bad={} total={} positivePercentage={}></Statistics> */}
-        
-        {/* <Notification message="No feedback given"></Notification> */}
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Container title="Feedback:">
+            {Object.keys(this.state).map((item, i) => (
+              <button key={i}>{item} </button>
+            ))}
+            {/* <Statistics /> */}
+            <ul>
+              {Object.entries(this.state).map((item, i) => (
+                <li key={i}>
+                  {item[0]}: {item[1]}
+                </li>
+              ))}
+            </ul>
+            {/* <FeedbackOptions /> */}
+          </Container>
+          {/* <Statistics good={} neutral={} bad={} total={} positivePercentage={}></Statistics> */}
+
+          {/* <Notification message="No feedback given"></Notification> */}
         </header>
-    </div>
-  )}
+      </div>
+    );
+  }
 }
 
 export default App;
