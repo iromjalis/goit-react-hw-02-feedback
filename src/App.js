@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import Container from './components/Container';
-// import FeedbackOptions from './components/FeedbackOptions';
+import FeedbackOptions from './components/FeedbackOptions';
 // import Statistics from './components/Statistics';
 
 //file
@@ -11,14 +11,17 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <Container title="Feedback:">
             {Object.keys(this.state).map((item, i) => (
-              <button key={i}>{item} </button>
+              // <button key={i}>{item} </button>
+              <FeedbackOptions key={i} item={item} />
             ))}
+
             {/* <Statistics /> */}
             <ul>
               {Object.entries(this.state).map((item, i) => (
@@ -27,7 +30,6 @@ class App extends Component {
                 </li>
               ))}
             </ul>
-            {/* <FeedbackOptions /> */}
           </Container>
           {/* <Statistics good={} neutral={} bad={} total={} positivePercentage={}></Statistics> */}
 
