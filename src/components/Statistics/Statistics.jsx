@@ -1,23 +1,21 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 //import { Test } from './Statistics.styles';
 
-class Statistics extends PureComponent { 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hasError: false,
-    };
-  }
- 
-  render () {
-     return (
-      <div className="StatisticsWrapper">
-Statistics      </div>
-    );
-  }
-}
+const Statistics = () => {
+  return (
+    <div className="StatisticsWrapper">
+      Statistics
+      {/* <ul>
+        {Object.entries(this.state).map((item, i) => (
+          <li key={i}>
+            {item[0]}: {item[1]}
+          </li>
+        ))}
+      </ul> */}
+    </div>
+  );
+};
 
 Statistics.propTypes = {
   // bla: PropTypes.string,
