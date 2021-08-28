@@ -1,40 +1,49 @@
 import { Component } from 'react';
+//styles
 import './App.css';
+//components
+import Notification from 'components/Notification/Notification';
+import Section from 'components/Section/Section';
 import Container from './components/Container';
 import FeedbackOptions from './components/FeedbackOptions';
-// import Statistics from './components/Statistics';
+import Statistics from './components/Statistics';
 
 //file
+const state = {
+  good: 0,
+  neutral: 0,
+  bad: 0,
+};
 class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
-
   render() {
+    console.log('state', state);
     return (
       <div className="App">
-        <header className="App-header">
-          <Container title="Feedback:">
-            {Object.keys(this.state).map((item, i) => (
-              // <button key={i}>{item} </button>
-              <FeedbackOptions key={i} item={item} />
-            ))}
+        <Container>
+          <Section title="Feedback:">
+            <FeedbackOptions
+            // options={options}
+            // onLeaveFeedback={onLeaveFeedback}
+            />
+          </Section>
 
-            {/* <Statistics /> */}
-            <ul>
-              {Object.entries(this.state).map((item, i) => (
-                <li key={i}>
-                  {item[0]}: {item[1]}
-                </li>
-              ))}
-            </ul>
-          </Container>
-          {/* <Statistics good={} neutral={} bad={} total={} positivePercentage={}></Statistics> */}
-
-          {/* <Notification message="No feedback given"></Notification> */}
-        </header>
+          {<Notification message="No feedback given"></Notification> || (
+            <Section title="Feedback:">
+              <Statistics
+              // good={good}
+              // neutral={neutral}
+              // bad={bad}
+              // total={total}
+              // positivePercentage={positivePercentage}
+              />
+            </Section>
+          )}
+        </Container>
       </div>
     );
   }
