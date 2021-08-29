@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import { Test } from './FeedbackOptions.styles';
+import FeedbackOptionItem from './FeedbackOptionItem';
 
-const FeedbackOptions = ({ item }) => {
+const FeedbackOptions = ({ options, handleClick }) => {
   return (
-    <button>
-      {item}
-      {/* {Object.keys(state).map((item, i) => (
-        // <button key={i}>{item} </button>
-        <FeedbackOptions key={i} item={item} />
-      ))} */}
-    </button>
+    <>
+      {Object.keys(options).map((item, i) => (
+        <FeedbackOptionItem
+          key={i}
+          item={item}
+          name={item}
+          handleClick={handleClick}
+        />
+      ))}
+    </>
   );
 };
 
