@@ -1,18 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './Statistics.styles';
+// import PropTypes from 'prop-types';
+// import s from './Statistics.css';
 
-const Statistics = () => {
+const Statistics = ({ options, total, positivePercentage }) => {
   return (
     <div className="StatisticsWrapper">
       Statistics
-      {/* <ul>
-        {Object.entries(this.state).map((item, i) => (
+      <ul>
+        {Object.entries(options).map((item, i) => (
           <li key={i}>
             {item[0]}: {item[1]}
           </li>
         ))}
-      </ul> */}
+      </ul>
+      <p>
+        Total: <b>{total}</b>
+      </p>
+      <p>
+        Positive feedback: <b>{positivePercentage}</b>%
+      </p>
     </div>
   );
 };
