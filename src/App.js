@@ -31,10 +31,15 @@ class App extends Component {
     return total;
   };
 
+  positivePercentage = () => {
+    const state = this.state;
+    const total = this.countTotalFeedback();
+    const posPercentage = Math.round(Number((state.good / total) * 100));
+    return posPercentage;
+  };
+
   render() {
     const state = this.state;
-    const total = Object.values(state).reduce((acc, item) => acc + item, 0);
-    const positivePercentage = Math.round(Number((state.good / total) * 100));
 
     return (
       <div className="App">
@@ -47,14 +52,14 @@ class App extends Component {
             />
           </Section>
 
-          {total <= 0 ? (
+          {this.countTotalFeedback() <= 0 ? (
             <Notification message="No feedback given"></Notification>
           ) : (
             <Section title="Statistics">
               <Statistics
                 options={state}
-                total={total}
-                positivePercentage={positivePercentage}
+                total={this.countTotalFeedback()}
+                positivePercentage={this.positivePercentage()}
               />
             </Section>
           )}
