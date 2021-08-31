@@ -16,6 +16,7 @@ const FeedbackOptionItem = ({ item, handleClick }) => {
 
 FeedbackOptionItem.propTypes = {
   item: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptionItem;

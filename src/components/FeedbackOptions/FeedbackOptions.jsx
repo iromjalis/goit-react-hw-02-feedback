@@ -18,7 +18,8 @@ const FeedbackOptions = ({ options, handleClick }) => {
 };
 
 FeedbackOptions.propTypes = {
-  item: PropTypes.string,
+  options: PropTypes.objectOf(PropTypes.number),
+  handleClick:PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;

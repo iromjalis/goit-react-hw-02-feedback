@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import s from './Statistics.css';
 
 const Statistics = ({ options, total, positivePercentage }) => {
@@ -24,8 +24,9 @@ const Statistics = ({ options, total, positivePercentage }) => {
 };
 
 Statistics.propTypes = {
-  // bla: PropTypes.string,
-};
+options:PropTypes.objectOf(PropTypes.number.isRequired), 
+total:PropTypes.number.isRequired,
+positivePercentage:PropTypes.number.isRequired,};
 
 Statistics.defaultProps = {
   // bla: 'test',

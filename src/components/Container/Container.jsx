@@ -15,10 +15,11 @@ const Container = ({ title, children }) => {
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
+  title:PropTypes.string,
 };
 
 Container.defaultProps = {
-  // bla: 'test',
+  title:''
 };
 
 export default Container;
