@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import s from './Statistics.css';
+import Notification from 'components/Notification';
 
-const Statistics = ({ options, total, positivePercentage }) => {
-  return (
+const Statistics = ({ title, options, total = 0, positivePercentage = 0 }) =>
+  total === 0 ? (
+    <Notification message="No feedback given"></Notification>
+  ) : (
     <div className="StatisticsWrapper">
-      Statistics
+      <h1>{title}</h1>
       <ul>
-        {Object.entries(options).map((item, i) => (
+        {options.map((item, i) => (
           <li key={i}>
             {item[0]}: {item[1]}
           </li>
@@ -21,15 +23,11 @@ const Statistics = ({ options, total, positivePercentage }) => {
       </p>
     </div>
   );
-};
 
 Statistics.propTypes = {
-options:PropTypes.objectOf(PropTypes.number.isRequired), 
-total:PropTypes.number.isRequired,
-positivePercentage:PropTypes.number.isRequired,};
-
-Statistics.defaultProps = {
-  // bla: 'test',
+  options: PropTypes.arrayOf(PropTypes.array.isRequired),
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };
 
 export default Statistics;

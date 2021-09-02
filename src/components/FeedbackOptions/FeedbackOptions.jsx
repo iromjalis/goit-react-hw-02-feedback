@@ -5,7 +5,7 @@ import FeedbackOptionItem from './FeedbackOptionItem';
 const FeedbackOptions = ({ options, handleClick }) => {
   return (
     <>
-      {Object.keys(options).map((item, i) => (
+      {options.map((item, i) => (
         <FeedbackOptionItem
           key={i}
           item={item}
@@ -18,8 +18,8 @@ const FeedbackOptions = ({ options, handleClick }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number),
-  handleClick:PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;

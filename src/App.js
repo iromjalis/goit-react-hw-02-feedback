@@ -2,13 +2,10 @@ import { Component } from 'react';
 //styles
 import './App.css';
 //components
-import Notification from 'components/Notification/Notification';
 import Section from 'components/Section/Section';
 import Container from './components/Container';
 import FeedbackOptions from './components/FeedbackOptions';
 import Statistics from './components/Statistics';
-
-//file
 
 class App extends Component {
   state = {
@@ -40,29 +37,26 @@ class App extends Component {
 
   render() {
     const state = this.state;
+    const keys = Object.keys(state);
+    const positivePercentage = this.positivePercentage();
+    const entries = Object.entries(state);
 
     return (
       <div className="App">
         <Container>
           <Section title="Feedback:">
-            <FeedbackOptions
-              options={state}
-              handleClick={this.handleClick}
-              // onLeaveFeedback={onLeaveFeedback}
-            />
+            <FeedbackOptions options={keys} handleClick={this.handleClick} />
           </Section>
 
-          {this.countTotalFeedback() <= 0 ? (
-            <Notification message="No feedback given"></Notification>
-          ) : (
-            <Section title="Statistics">
-              <Statistics
-                options={state}
-                total={this.countTotalFeedback()}
-                positivePercentage={this.positivePercentage()}
-              />
-            </Section>
-          )}
+          <Section>
+            <Statistics
+              title="Statistics"
+              state={this.state}
+              options={entries}
+              total={this.countTotalFeedback()}
+              positivePercentage={positivePercentage}
+            />
+          </Section>
         </Container>
       </div>
     );
