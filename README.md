@@ -1,1 +1,1 @@
- 
+ Like most businesses, Cafe Expresso collects testimonials from its customers. Your task is to create an application for collecting statistics. There are only three types of feedback: good, neutral, and bad.
